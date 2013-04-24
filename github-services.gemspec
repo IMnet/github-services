@@ -20,22 +20,22 @@ Gem::Specification.new do |spec|
   spec.homepage = 'https://github.com/github/github-services'
   spec.licenses = ['MIT']
 
-  spec.add_dependency "addressable",            "~> 2.2.7"
+  spec.add_dependency "addressable"
   spec.add_dependency 'yajl-ruby',              '1.1.0'
   spec.add_dependency "mash",                   "~> 0.1.1"
   spec.add_dependency "mime-types",             "~> 1.15"
   spec.add_dependency "ruby-hmac",              "0.4.0"
-  spec.add_dependency "faraday",                "0.8.7"
+  spec.add_dependency "faraday"
   spec.add_dependency "excon",                  "~> 0.20.1"
 
   # Basecamp Classic
-  spec.add_dependency "activeresource",         "~> 3.0.0"
+  spec.add_dependency "activeresource"
 
   # Twitter
-  spec.add_dependency "oauth",                  "0.4.4"
+  spec.add_dependency "oauth"
 
   # Campfire
-  spec.add_dependency "tinder",                 "1.8.0.github"
+  spec.add_dependency "tinder"
 
   # Bamboo, Buddycloud
   spec.add_dependency "xml-simple",             "1.0.11"
@@ -61,7 +61,7 @@ Gem::Specification.new do |spec|
 
   # Amazon SNS
   spec.add_dependency "aws-sdk", "~> 1.8.0"
-  spec.add_dependency "httparty", "0.7.4"
+  spec.add_dependency "httparty"
 
   spec.files = %w(Gemfile LICENSE README.mkdn CONTRIBUTING.md Rakefile)
   spec.files << "#{lib}.gemspec"

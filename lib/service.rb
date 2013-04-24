@@ -110,6 +110,18 @@ class Service
     def load_services
       path = File.expand_path("../services/**/*.rb", __FILE__)
       Dir[path].each { |lib| require(lib) }
+
+      # GitLab related load the docs
+      dir = File.expand_path '../../docs', __FILE__
+      Service.constants.each do |constant|
+        service = Service.const_get(constant)
+        doc = File.join(dir, constant.to_s.downcase)
+        if File.exists? doc
+          service.documentation = File.read doc
+        elsif service.respond_to?(:hook_name) && File.exists?(File.join(dir, service.hook_name))
+          service.documentation = File.read File.join(dir, service.hook_name)
+        end
+      end
     end
 
     # Tracks the defined services.
@@ -287,6 +299,9 @@ class Service
     #
     # Returns a String.
     attr_writer :hook_name
+
+    # Accesses the documentation of this Service
+    attr_accessor :documentation
 
     attr_reader :url, :logo_url
 
